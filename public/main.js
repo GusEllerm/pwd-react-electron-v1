@@ -1,26 +1,28 @@
 const { getByLabelText } = require('@testing-library/react');
 const { app, BrowserWindow, ipcMain, dialog, Menu } = require('electron')
 
+let primaryWindow;
+
 function createWindow () {
   // Create the browser window.
-  const windowOne = new BrowserWindow({
+  primaryWindow = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
-      contextIsolation: false,
+      contextIsolation: true,
     }
   })
 
   // remove the menu bar
-  windowOne.removeMenu()
+  primaryWindow.removeMenu()
 
   // load the index.html from a url
-  windowOne.loadURL('http://localhost:3000');
+  primaryWindow.loadURL('http://localhost:3000');
 
   // Open the DevTools.
-  windowOne.webContents.openDevTools()
+  primaryWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
@@ -34,21 +36,34 @@ app.whenReady().then(() => {
   // create menu bar object
   const template = [
     {
+      label: "Home",
+      click: function() {
+        console.log("to Home activity"),
+        primaryWindow.loadURL('http://localhost:3000/#/')
+      }
+    },
+    {
       label: 'Code Viewer',
       click: function() {
-         console.log('To Code View Activity') // TODO
+         console.log('To Code View activity') 
+         // Route to the code view activity
+         primaryWindow.loadURL('http://localhost:3000/#/CodeViewer')
       }
     },
     {
       label: 'Graph Viewer',
       click: function() {
-         console.log('To Graph Viewer activity') // TODO
+         console.log('To Graph Viewer activity') 
+         // Route to the graph view activity
+         primaryWindow.loadURL('http://localhost:3000/#/GraphViewer')
       }
     },
     {
       label: 'CWL file generator',
       click: function() { 
-        console.log('to CWL file generator') // TODO
+        console.log('to CWL activity') 
+        // Route to the CWL activity
+        primaryWindow.loadURL('http://localhost:3000/#/CWLGenerator')
       }
     },
     {
