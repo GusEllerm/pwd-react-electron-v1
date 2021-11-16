@@ -7,11 +7,11 @@ It contains tools to aid in the dev of a larger publication project.
 
 First you will need to start react 
 
-#### npm start
+#### `npm start`
 
 and from a second terminal start electron, which listens for reacts webpage 
 
-#### npm run electron-dev
+#### `npm run electron-dev`
 
 This will open electrons container & render react.
 
