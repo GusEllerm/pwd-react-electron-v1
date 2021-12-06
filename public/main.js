@@ -36,40 +36,42 @@ app.whenReady().then(() => {
   // create menu bar object
   const template = [
     {
-      label: "Home",
-      click: function() {
-        console.log("to Home activity"),
-        primaryWindow.loadURL('http://localhost:3000/#/')
-      }
-    },
-    {
-      label: 'Code Viewer',
-      click: function() {
-         console.log('To Code View activity') 
-         // Route to the code view activity
-         primaryWindow.loadURL('http://localhost:3000/#/CodeViewer')
-      }
-    },
-    {
-      label: 'Graph Viewer',
-      click: function() {
-         console.log('To Graph Viewer activity') 
-         // Route to the graph view activity
-         primaryWindow.loadURL('http://localhost:3000/#/GraphViewer')
-      }
-    },
-    {
-      label: 'CWL file generator',
-      click: function() { 
-        console.log('to CWL activity') 
-        // Route to the CWL activity
-        primaryWindow.loadURL('http://localhost:3000/#/CWLGenerator')
-      }
-    },
-    {
       label: 'Options',
       submenu:[
-        {role:'reload'},
+        {
+          role:'reload'
+        },
+        {
+          label: "Home",
+          click: function() {
+            console.log("to Home activity"),
+            primaryWindow.loadURL('http://localhost:3000/#/')
+          }
+        },
+        {
+          label: 'Code Viewer',
+          click: function() {
+             console.log('To Code View activity') 
+             // Route to the code view activity
+             primaryWindow.loadURL('http://localhost:3000/#/CodeViewer')
+          }
+        },
+        {
+          label: 'Graph Viewer',
+          click: function() {
+             console.log('To Graph Viewer activity') 
+             // Route to the graph view activity
+             primaryWindow.loadURL('http://localhost:3000/#/GraphViewer')
+          }
+        },
+        {
+          label: 'CWL file generator',
+          click: function() { 
+            console.log('to CWL activity') 
+            // Route to the CWL activity
+            primaryWindow.loadURL('http://localhost:3000/#/CWLGenerator')
+          }
+        }
       ]
     }
   ]
