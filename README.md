@@ -1,4 +1,4 @@
-# Navtive documentation
+# Native documentation
 This project is a first attempt at a prototype workflow descriptor (pwd) for the CWL workflow description language. 
 
 It contains tools to aid in the dev of a larger publication project. 
